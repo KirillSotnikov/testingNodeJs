@@ -1,18 +1,16 @@
-
-header
-  h2 LOGO
-  ul
-    li
-      a(
-        href="/"
-      ) Main page
-    li
-      a(
-        href="/about"
-      ) About page
-    li
-      a(
-        href="/contact"
-      ) Contact page
-
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='/') LOGO
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNavAltMarkup.collapse.navbar-collapse
+    .navbar-nav
+      a.nav-item.nav-link(href='/')
+        | Main page 
+        span.sr-only (current)
+      a.nav-item.nav-link(href='/about') About page
+        span.sr-only (current)
+      a.nav-item.nav-link(href='/portfolio') Portfolio page
+        span.sr-only (current)
+      a.nav-item.nav-link(href='/contact') Contact page
+        span.sr-only (current)
 
