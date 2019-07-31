@@ -17,18 +17,22 @@
   ],
   "portfolioData": [
     {
+      "id": 1,
       "title": "work 1",
       "description": "Work description 1"
     },
     {
+      "id": 2,
       "title": "work 2",
       "description": "Work description 2"
     },
     {
+      "id": 3,
       "title": "work 3",
       "description": "Work description 3"
     },
     {
+      "id": 4,
       "title": "work 4",
       "description": "Work description 4"
     }
