@@ -22,5 +22,7 @@ router.post('/contact', ctrlContact.sendMail)
 
 router.get('/requests-list', ctrlRequestsList.getRequests);
 router.post('/delete-request', ctrlRequestsList.deleteRequest);
+router.post('/success-request', ctrlRequestsList.setStatusRequest);
+router.post('/success-request-false', ctrlRequestsList.setStatusRequestFalse);
 
 module.exports = router;

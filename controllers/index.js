@@ -12,6 +12,7 @@ module.exports.sendRequest = async function(req, res) {
       .get('requests')
       .push({
         id: unicId,
+        status: false,
         name: req.body.name,
         email: req.body.email,
         text: req.body.text
