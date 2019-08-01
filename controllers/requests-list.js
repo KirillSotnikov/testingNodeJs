@@ -8,8 +8,9 @@ module.exports.getRequests = function(req, res) {
 }
 
 module.exports.deleteRequest = async function(req, res) {
+  console.log(req)
   try{
-    let requestID = req.body['id']
+    let requestID = req.body.id
     const requestBase = await db
       .get('requests')
       .value();
@@ -20,7 +21,7 @@ module.exports.deleteRequest = async function(req, res) {
     .remove(requestCurrent)
     .write()
 
-    res.redirect('/requests-list')
+    res.end()
   } catch (err) {
     throw new Error(err)
   }
