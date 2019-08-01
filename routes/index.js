@@ -12,6 +12,8 @@ router.get('/', ctrlHome.getIndex)
 router.post('/send-request', ctrlHome.sendRequest)
 
 router.get('/about', ctrlAbout.getAbout)
+router.get('/edit-aboutinfo', ctrlAbout.getEditAboutPage)
+router.post('/edit-about-info-method', ctrlAbout.getEditAboutInfo)
 
 router.get('/portfolio', ctrlPortfolio.getPortfolio)
 

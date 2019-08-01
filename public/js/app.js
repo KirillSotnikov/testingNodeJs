@@ -57,27 +57,7 @@ function sendRequest(e) {
 
 const formMail = document.querySelector('#mail');
 const formMail2 = document.querySelector('#mail2');
-let deleteForm = document.querySelectorAll('.delete-request')
 
-deleteForm.forEach(element => {
-  //  element.addEventListener('submit', function(e) {
-  //    e.preventDefault()
-  //   let data = {id: element.id.value}
-  //   fetch('/delete-request', {
-  //     method: 'POST',
-  //     body: JSON.stringify(data),
-  //     headers: {
-  //       'Accept' : 'application/json',
-  //       'Content-Type' : 'application/json'
-  //     }
-  //   }).then(function(response) {
-  //     window.location.reload();
-  //   }).catch(function(err) {
-  //     alert(err)
-  //     throw new Error(err)
-  //   })
-  //  })
-})
 if(formMail) {
   formMail.addEventListener('submit', prepareSendMail);
 } else if (formMail2) {
