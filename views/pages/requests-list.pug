@@ -1,0 +1,34 @@
+extends ../_template
+
+block content
+  .container
+    h1 Requests List
+    .row.mb-4
+      if requests
+        each requestItem in requests
+          .col-12.col-sm-6.col-md-4
+            .card.mb-4
+              .card-body
+                p(
+                  class="card-title"
+                )
+                  span.h5 Name: 
+                  span= requestItem.name
+                p(
+                  class="card-text"
+                )
+                  span.h5 E-mail: 
+                  span= requestItem.email
+                p(
+                  class="card-text"
+                )
+                  span.h5 Request text: 
+                  span= requestItem.text
+                form.success-request.p-0.mb-3(action="/success-request" method="POST" enctype="application/x-www-form-urlencoded")
+                  input(type="hidden", name="request-id" value=requestItem.id)
+                  button(type="submit").card-link.btn.btn-success Success
+                form.delete-request.p-0(action="/delete-request" method="POST" enctype="application/x-www-form-urlencoded")
+                  input(type="hidden", name="id" value=requestItem.id)
+                  button(type="submit").card-link.btn.btn-danger Delete request
+      else if !requests
+        p Hello

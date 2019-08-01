@@ -1,16 +1,34 @@
 extends ../_template
 
+//- block content
+//-   H1 #{title} page
+//-   form.form#mail(action='/contact' method="POST" enctype="application/x-www-form-urlencoded")
+//-       .form__subtitle Связаться со мной
+//-       .status
+//-       label.form__input-line
+//-           input(name="name" type="text" placeholder="Имя").form__input
+//-       label.form__input-line
+//-           input(name="email" type="email" placeholder="E-mail").form__input
+//-       textarea(placeholder="Ваше сообщение" name="text").form__textarea
+//-       .form__btns.form__input-line
+//-           input(name="" type="submit" value="Отправить").form__btn-send
+//-           br
+//-           input(name="" type="reset" value="Очистить").form__btn-reset
+
 block content
-  H1 #{title} page
-  form.form#mail(action='/contact' method="POST" enctype="application/x-www-form-urlencoded")
-      .form__subtitle Связаться со мной
-      .status
-      label.form__input-line
-          input(name="name" type="text" placeholder="Имя").form__input
-      label.form__input-line
-          input(name="email" type="email" placeholder="E-mail").form__input
-      textarea(placeholder="Ваше сообщение" name="text").form__textarea
-      .form__btns.form__input-line
-          input(name="" type="submit" value="Отправить").form__btn-send
-          br
-          input(name="" type="reset" value="Очистить").form__btn-reset
+    .container
+        H1 #{title} page
+        form(id="mail" action='/contact' method="POST" enctype="application/x-www-form-urlencoded")
+            h4.form__subtitle Связаться со мной
+            p.status
+            .form-group
+                //- label(for='exampleInputEmail1') Имя
+                input#exampleInputEmail1.form-control(type='text', name="name", aria-describedby='emailHelp', placeholder='Имя')
+            .form-group
+                //- label(for='exampleInputPassword1') E-mail
+                input#exampleInputPassword1.form-control(type='emal', name="email", placeholder='E-mail')
+            .form-group
+                //- label(for='exampleFormControlTextarea1') Ваше сообщение
+                textarea#exampleFormControlTextarea1.form-control(rows='3' name="text" placeholder="Ваше сообщение")
+            button.btn.btn-primary.form__btn-send(type='submit') Отправить
+            button.btn.btn-primary.form__btn-reset.mt-3(type='reset') Очистить

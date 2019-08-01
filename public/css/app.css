@@ -1,8 +1,6 @@
 form{
   display: flex;
   flex-direction: column;
-  background: yellowgreen;
-  width: 300px;
   padding: 20px;
 }
 form input, form textarea{
