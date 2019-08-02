@@ -7,14 +7,26 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       a.nav-item.nav-link(href='/')
         | Main page 
         span.sr-only (current)
+      span.nav-item.nav-link |
       a.nav-item.nav-link(href='/about') About page
         span.sr-only (current)
+      span.nav-item.nav-link |
       a.nav-item.nav-link(href='/portfolio') Portfolio page
         span.sr-only (current)
+      span.nav-item.nav-link |
       a.nav-item.nav-link(href='/contact') Contact page
         span.sr-only (current)
-      a.nav-item.nav-link(href='/requests-list') Requests List
+      span.nav-item.nav-link |
+      a.nav-item.nav-link(href='/requests') Requests
         span.sr-only (current)
-      a.nav-item.nav-link(href='/edit-aboutinfo') Edit Info
-        span.sr-only (current)
+      if userData.isAuth
+        span.nav-item.nav-link ---
+        a.nav-item.nav-link(href='/requests-list') Requests List
+          span.sr-only (current)
+        span.nav-item.nav-link |
+        a.nav-item.nav-link(href='/edit-aboutinfo') Edit Info
+          span.sr-only (current)
+        span.nav-item.nav-link |
+        a.nav-item.nav-link(href='/add-portfolio') Add Portfolio
+          span.sr-only (current)
 

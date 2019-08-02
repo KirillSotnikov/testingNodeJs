@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const config = require('../config.json');
 
 module.exports.getContact = function(req, res) {
-  res.render('pages/contact', {title: 'Contacts'})
+  res.render('pages/contact', {title: 'Contacts', userData: req.userData})
 }
 
 module.exports.sendMail = function(req, res) {

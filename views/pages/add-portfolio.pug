@@ -1,0 +1,16 @@
+extends ../_template
+
+block content
+  .container.pt-5.pb-5
+    //- h1 #{aboutInfo.title}
+    //- p #{aboutInfo.description}
+    form(action=`/add-portfolio-method` method="POST" enctype="application/x-www-form-urlencoded")
+      h4.form__subtitle Add Portfolio
+      p.status
+      .form-group
+          //- label(for='exampleInputEmail1') Имя
+          input#exampleInputEmail1.form-control(type='text', name="title", aria-describedby='emailHelp', placeholder='Title')
+      .form-group
+          //- label(for='exampleFormControlTextarea1') Ваше сообщение
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="description" placeholder="Description"></textarea>
+      button.btn.btn-primary.form__btn-send(type='submit') Отправить

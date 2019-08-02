@@ -5,7 +5,15 @@ module.exports.getRequests = function(req, res) {
     .get('requests')
     .sortBy('status')
     .value()
-  res.render('pages/requests-list', {requests: requests})
+  res.render('pages/requests-list', {requests: requests, userData: req.userData})
+}
+
+module.exports.successRequests = function(req, res) {
+  const requests = db
+    .get('requests')
+    .filter({status: false})
+    .value()
+  res.render('pages/requests-success', {requests: requests, userData: req.userData})
 }
 
 module.exports.deleteRequest = async function(req, res) {

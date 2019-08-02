@@ -1,0 +1,25 @@
+extends ../_template
+
+block content
+  .container
+    h1 Requests List
+    .row.mb-4
+      each requestItem in requests
+        .col-12.col-sm-6.col-md-4
+          .card.mb-4
+            .card-body
+              p(
+                class="card-title"
+              )
+                span.h5 Name: 
+                span= requestItem.name
+              p(
+                class="card-text"
+              )
+                span.h5 E-mail: 
+                span= requestItem.email
+              p(
+                class="card-text"
+              )
+                span.h5 Request text: 
+                span= requestItem.text

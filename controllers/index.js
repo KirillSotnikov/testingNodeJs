@@ -1,7 +1,7 @@
 const db = require('../models/db')
 
 module.exports.getIndex = function(req, res) {
-  res.render('pages/index', {title: 'Main'})
+  res.render('pages/index', {title: 'Main', userData: req.userData})
 }
 
 module.exports.sendRequest = async function(req, res) {
