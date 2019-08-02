@@ -42,6 +42,7 @@ const AboutSchema = new Schema({
 })
 
 const About = mongoose.model('About', AboutSchema)
+// --
 
 const createAboutInfo = async () => {
   const aboutInfo = await new About({
