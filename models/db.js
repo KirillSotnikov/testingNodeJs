@@ -5,3 +5,4 @@ const adapter = new FileSync('./models/db.json');
 const db = low(adapter);
 
 module.exports = db
+// --
