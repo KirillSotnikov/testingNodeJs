@@ -1,27 +1,34 @@
-const db = require('../models/db')
+const {Portfolio} = require('../models/db')
 
-module.exports.getPortfolio = function(req, res) {
-  const portfolioData = db
-    .getState()
-    .portfolioData || []
-  res.render('pages/portfolio', {portfolioData: portfolioData, userData: req.userData})
+const createNewPortfolio = async (data) => {
+  const portfolioItem = await new Portfolio(data)
+
+  const dbCall = await portfolioItem.save()
+}
+
+module.exports.getPortfolio = async function(req, res) {
+  const portfolioData = await Portfolio.find()
+  res.render('pages/portfolio', {portfolioData: portfolioData})
 }
 
 module.exports.addPortfolio = function(req, res) {
-  const portfolioData = db
-    .getState()
-    .portfolioData || []
-  res.render('pages/add-portfolio', {portfolioData: portfolioData, userData: req.userData})
+  res.render('pages/add-portfolio')
 }
 
 module.exports.addPortfolioMethod = async function(req, res) {
   let unicId = '_' + Math.random().toString(36).substr(2, 9)
-  await db.get('portfolioData')
-    .push({
+  let data = {
       id: unicId, 
       title: req.body.title,
       description: req.body.description
-    })
-    .write()
+  }
+  createNewPortfolio(data)
+  res.redirect('/portfolio')
+}
+
+module.exports.deletePortfolio = async function(req, res) {
+  let portfolioId = req.body.id
+  await Portfolio.remove({id: portfolioId})
+
   res.redirect('/portfolio')
 }

@@ -14,9 +14,13 @@ block content
               p(
                 class="card-text"
               )= portfolioItem.description
-              a.card-link.btn.btn-primary(
-                href='/portfolio/' + portfolioItem.id
-              ) Open Portfolio
-              a.card-link.btn.btn-warning(
-                href='/edit-portfolio/' + portfolioItem.id
-              ) Edit Portfolio
+              .d-flex.justify-content-between
+                a.card-link.btn.btn-primary(
+                  href='/portfolio/' + portfolioItem.id
+                ) Open Portfolio
+                a.card-link.btn.btn-warning(
+                  href='/edit-portfolio/' + portfolioItem.id
+                ) Edit Portfolio
+              form.delete-request.mt-3.p-0(action="/delete-portfolio" method="POST" enctype="application/x-www-form-urlencoded")
+                input(type="hidden", name="id" value=portfolioItem.id)
+                button(type="submit").card-link.btn.btn-danger Delete Portfolio

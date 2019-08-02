@@ -7,13 +7,17 @@ const ctrlContact = require('../controllers/contact')
 const ctrlPortfolio = require('../controllers/portfolio')
 const ctrlPortfolioSingle = require('../controllers/portfolio-single')
 const ctrlRequestsList = require('../controllers/requests-list')
-const middlewareAuth = require('../middleware/user')
+// const middlewareAuth = require('../middleware/user')
 
 
-router.get('/*', middlewareAuth.isAuthMiddleware)
+// router.get('/*', middlewareAuth.isAuthMiddleware)
 
-router.get('/', ctrlHome.getIndex)
-router.post('/send-request', ctrlHome.sendRequest)
+router.get('/', function(req, res) {
+  res.redirect('/send-request-page')
+})
+
+router.get('/send-request-page', ctrlHome.getIndex)
+router.post('/send-request', ctrlRequestsList.sendRequest)
 
 router.get('/about', ctrlAbout.getAbout)
 router.get('/edit-aboutinfo', ctrlAbout.getEditAboutPage)
@@ -27,6 +31,9 @@ router.get('/edit-portfolio/:id', ctrlPortfolioSingle.editPortfolio)
 
 router.get('/add-portfolio', ctrlPortfolio.addPortfolio)
 router.post('/add-portfolio-method', ctrlPortfolio.addPortfolioMethod)
+
+
+router.post('/delete-portfolio', ctrlPortfolio.deletePortfolio)
 
 router.post('/edit-portfolio-method/:id', ctrlPortfolioSingle.editPortfolioMethod)
 
