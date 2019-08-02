@@ -1,10 +1,10 @@
 
-const urlDB = 'mongodb+srv://sotnikov_k:OP1imCvCqLmcrQri@mongovue-voe6y.mongodb.net/test?retryWrites=true&w=majority'
+// const urlDB = 'mongodb+srv://sotnikov_k:OP1imCvCqLmcrQri@mongovue-voe6y.mongodb.net/test?retryWrites=true&w=majority'
 
 const express = require('express')
 const app = express();
 const path = require('path')
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 

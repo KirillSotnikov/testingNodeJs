@@ -1,22 +1,9 @@
-// const low = require('lowdb')
-// const FileSync = require('lowdb/adapters/FileSync');
-
-// const adapter = new FileSync('./models/db.json');
-// const db = low(adapter);
-
-// module.exports = db
-
-const urlDB = 'mongodb+srv://sotnikov_k:OP1imCvCqLmcrQri@mongovue-voe6y.mongodb.net/nodeTraining?retryWrites=true&w=majority'
+require('dotenv').config()
+const urlDB = 'mongodb+srv://'+ process.env.DB_USER +':'+process.env.DB_PASS+'@mongovue-voe6y.mongodb.net/nodeTraining?retryWrites=true&w=majority'
 
 const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
-// mongoose.connect('mongodb+srv://sotnikov_k:comicon21@mongovue-voe6y.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}, function(err) {
-//   if(err) throw err
- 
-//   console.log('Successfully connected');
-// });
-
 
 mongoose.connect(urlDB, {useNewUrlParser: true})
 .then(() => {
@@ -51,7 +38,6 @@ const createAboutInfo = async () => {
   })
   const dbCall = await aboutInfo.save()
 }
-// createAboutInfo()
 
 const PortfolioSchema = new Schema({
   id: String,
